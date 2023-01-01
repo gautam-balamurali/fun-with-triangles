@@ -5,7 +5,7 @@ import React from "react";
 function Header() {
   return (
     <header className="container user-avatar">
-      <h1>Triangle Quiz</h1>
+      <h1>quiz on triangles</h1>
     </header>
   );
 }

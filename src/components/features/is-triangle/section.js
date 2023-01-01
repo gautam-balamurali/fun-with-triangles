@@ -7,7 +7,7 @@ import {
   fixToTwoDigitsAfterDecimalPoint,
   isNotANumber,
 } from "../../../utils/app-utils";
-import DEFAULT_CONSTANTS from "../../../config/app-config";
+import * as AppConstants from "../../../config/app-config";
 // import user_avatar from "../../../images/user_avatar.svg";
 import { useState } from "react";
 
@@ -51,7 +51,7 @@ function Section() {
    * Function to handle invalid input
    */
   function invalidInputErrorHandler() {
-    setOutputMessage(DEFAULT_CONSTANTS.INVALID_INPUT_MESSAGE);
+    setOutputMessage(AppConstants.DEFAULT_CONSTANTS.INVALID_INPUT_MESSAGE);
   }
 
   //   <-- Error Handling Functions Ends -->
@@ -123,12 +123,12 @@ function Section() {
     if (
       calculateSumOfAngles(firstAngle, secondAngle, thirdAngle) ===
       fixToTwoDigitsAfterDecimalPoint(
-        DEFAULT_CONSTANTS.SUM_OF_ANGLES_OF_TRIANGLE
+        AppConstants.DEFAULT_CONSTANTS.SUM_OF_ANGLES_OF_TRIANGLE
       )
     ) {
-      message = DEFAULT_CONSTANTS.IS_TRIANGLE_MESSAGE;
+      message = AppConstants.DEFAULT_CONSTANTS.IS_TRIANGLE_MESSAGE;
     } else {
-      message = DEFAULT_CONSTANTS.IS_NOT_TRIANGLE_MESSAGE;
+      message = AppConstants.DEFAULT_CONSTANTS.IS_NOT_TRIANGLE_MESSAGE;
     }
     setOutputMessage(message);
   }
@@ -169,7 +169,7 @@ function Section() {
   function renderAppDescriptionSection() {
     return (
       <div className="sub-section">
-        <h3>{DEFAULT_CONSTANTS.IS_TRIANGLE_APP_DESCRIPTION}</h3>
+        <h3>{AppConstants.DEFAULT_CONSTANTS.IS_TRIANGLE_APP_DESCRIPTION}</h3>
       </div>
     );
   }
@@ -249,7 +249,7 @@ function Section() {
     return (
       <h2
         className={`${
-          outputMessage === DEFAULT_CONSTANTS.IS_TRIANGLE_MESSAGE
+          outputMessage === AppConstants.DEFAULT_CONSTANTS.IS_TRIANGLE_MESSAGE
             ? "output-msg"
             : "error-msg"
         }`}
