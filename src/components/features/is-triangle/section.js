@@ -20,10 +20,10 @@ function Section() {
   //   <-- Validity Functions Begins -->
 
   /**
-   * Function to check validity of calculate button
+   * Function to check validity of is triangle button
    * @returns boolean
    */
-  function isTriangleButtonInvalid() {
+  function isIsTriangleButtonInvalid() {
     return (
       firstAngleInput.length < 1 ||
       secondAngleInput.length < 1 ||
@@ -36,7 +36,7 @@ function Section() {
    * @param input
    * @returns boolean
    */
-  function isNumbererInputValid(input) {
+  function isNumberInputValid(input) {
     if (isNotANumber(input) || containsOnlySpaces(input)) {
       invalidInputErrorHandler();
       return false;
@@ -64,7 +64,7 @@ function Section() {
    */
   function firstAngleInputChangeHandler(event) {
     let inputFirstAngle = event.target.value;
-    if (isNumbererInputValid(inputFirstAngle)) {
+    if (isNumberInputValid(inputFirstAngle)) {
       setOutputMessage("");
       setFirstAngleInput(inputFirstAngle);
     } else {
@@ -79,7 +79,7 @@ function Section() {
    */
   function secondAngleInputChangeHandler(event) {
     let inputSecondAngle = event.target.value;
-    if (isNumbererInputValid(inputSecondAngle)) {
+    if (isNumberInputValid(inputSecondAngle)) {
       setOutputMessage("");
       setSecondAngleInput(inputSecondAngle);
     } else {
@@ -94,7 +94,7 @@ function Section() {
    */
   function thirdAngleInputChangeHandler(event) {
     let inputThirdAngle = event.target.value;
-    if (isNumbererInputValid(inputThirdAngle)) {
+    if (isNumberInputValid(inputThirdAngle)) {
       setOutputMessage("");
       setThirdAngleInput(inputThirdAngle);
     } else {
@@ -138,7 +138,7 @@ function Section() {
    * @param {*} firstAngle
    * @param {*} secondAngle
    * @param {*} thirdAngle
-   * @returns message
+   * @returns sum of angles
    */
   function calculateSumOfAngles(firstAngle, secondAngle, thirdAngle) {
     return fixToTwoDigitsAfterDecimalPoint(
@@ -175,7 +175,7 @@ function Section() {
   }
 
   /**
-   * Function to angles input labels section
+   * Function to render angles input labels section
    * @returns angles input labels section
    */
   function renderTriangleAnglesInputLabelsSection() {
@@ -225,9 +225,9 @@ function Section() {
     return (
       <button
         className={`${
-          isTriangleButtonInvalid() ? "btn-disabled" : "btn-enabled"
+          isIsTriangleButtonInvalid() ? "btn-disabled" : "btn-enabled"
         }`}
-        disabled={isTriangleButtonInvalid()}
+        disabled={isIsTriangleButtonInvalid()}
         onClick={() =>
           isTriangleButtonClickHandler(
             firstAngleInput,

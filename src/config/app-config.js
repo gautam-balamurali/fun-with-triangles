@@ -1,15 +1,17 @@
 /* eslint-disable */
 
 const DEFAULT_CONSTANTS = {
-  INVALID_INPUT_MESSAGE: "Input should be a valid number.",
+  INVALID_INPUT_MESSAGE: "input should be a valid number.",
   IS_TRIANGLE_APP_DESCRIPTION:
-    "Input three angles and find whether the entered angles could make a triangle.",
-  IS_TRIANGLE_MESSAGE: "Yo, the angles form a triangle!",
-  IS_NOT_TRIANGLE_MESSAGE: "Oops! The angles don't form a triangle!",
+    "input three angles and find whether the entered angles could make a triangle.",
+  IS_TRIANGLE_MESSAGE: "yo, the angles form a triangle!",
+  IS_NOT_TRIANGLE_MESSAGE: "oops! The angles don't form a triangle!",
   SUM_OF_ANGLES_OF_TRIANGLE: 180,
-  TRIANGLE_QUIZ_SCORE_MESSAGE: "You scored:",
+  TRIANGLE_QUIZ_SCORE_MESSAGE: "you scored:",
   TRIANGLE_QUIZ_APP_DESCRIPTION:
-    "For each correct answer you will get 1 point.",
+    "for each correct answer you will get 1 point.",
+  HYPOTENUSE_FORMULA: "hypotenuse formula: √(base² + height²)",
+  HYPOTENUSE_VALUE_MESSAGE: "the length of hypotenuse is",
 };
 
 const TRIANGLE_QUIZ_CORRECT_ANSWERS_DICTIONARY = {
