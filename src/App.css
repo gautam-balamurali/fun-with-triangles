@@ -195,3 +195,20 @@ h4 {
 .footer .link {
   color: var(--secondary);
 }
+
+.question-container {
+  width: 85%;
+  margin: 1rem auto;
+  font-size: larger;
+  padding: 1rem 0;
+  text-align: justify;
+}
+
+.question-container p {
+  margin: 1rem 0;
+}
+
+.question-container input {
+  cursor: pointer;
+  margin: 0.5rem;
+}

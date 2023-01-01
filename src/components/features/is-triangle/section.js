@@ -7,7 +7,7 @@ import {
   fixToTwoDigitsAfterDecimalPoint,
   isNotANumber,
 } from "../../../utils/app-utils";
-import DEFAULT_CONSTANTS from "../../../config/app-config";
+import * as AppConstants from "../../../config/app-config";
 // import user_avatar from "../../../images/user_avatar.svg";
 import { useState } from "react";
 
@@ -20,10 +20,10 @@ function Section() {
   //   <-- Validity Functions Begins -->
 
   /**
-   * Function to check validity of calculate button
+   * Function to check validity of is triangle button
    * @returns boolean
    */
-  function isTriangleButtonInvalid() {
+  function isIsTriangleButtonInvalid() {
     return (
       firstAngleInput.length < 1 ||
       secondAngleInput.length < 1 ||
@@ -36,7 +36,7 @@ function Section() {
    * @param input
    * @returns boolean
    */
-  function isNumbererInputValid(input) {
+  function isNumberInputValid(input) {
     if (isNotANumber(input) || containsOnlySpaces(input)) {
       invalidInputErrorHandler();
       return false;
@@ -51,7 +51,7 @@ function Section() {
    * Function to handle invalid input
    */
   function invalidInputErrorHandler() {
-    setOutputMessage(DEFAULT_CONSTANTS.INVALID_INPUT_MESSAGE);
+    setOutputMessage(AppConstants.DEFAULT_CONSTANTS.INVALID_INPUT_MESSAGE);
   }
 
   //   <-- Error Handling Functions Ends -->
@@ -64,7 +64,7 @@ function Section() {
    */
   function firstAngleInputChangeHandler(event) {
     let inputFirstAngle = event.target.value;
-    if (isNumbererInputValid(inputFirstAngle)) {
+    if (isNumberInputValid(inputFirstAngle)) {
       setOutputMessage("");
       setFirstAngleInput(inputFirstAngle);
     } else {
@@ -79,7 +79,7 @@ function Section() {
    */
   function secondAngleInputChangeHandler(event) {
     let inputSecondAngle = event.target.value;
-    if (isNumbererInputValid(inputSecondAngle)) {
+    if (isNumberInputValid(inputSecondAngle)) {
       setOutputMessage("");
       setSecondAngleInput(inputSecondAngle);
     } else {
@@ -94,7 +94,7 @@ function Section() {
    */
   function thirdAngleInputChangeHandler(event) {
     let inputThirdAngle = event.target.value;
-    if (isNumbererInputValid(inputThirdAngle)) {
+    if (isNumberInputValid(inputThirdAngle)) {
       setOutputMessage("");
       setThirdAngleInput(inputThirdAngle);
     } else {
@@ -123,12 +123,12 @@ function Section() {
     if (
       calculateSumOfAngles(firstAngle, secondAngle, thirdAngle) ===
       fixToTwoDigitsAfterDecimalPoint(
-        DEFAULT_CONSTANTS.SUM_OF_ANGLES_OF_TRIANGLE
+        AppConstants.DEFAULT_CONSTANTS.SUM_OF_ANGLES_OF_TRIANGLE
       )
     ) {
-      message = DEFAULT_CONSTANTS.IS_TRIANGLE_MESSAGE;
+      message = AppConstants.DEFAULT_CONSTANTS.IS_TRIANGLE_MESSAGE;
     } else {
-      message = DEFAULT_CONSTANTS.IS_NOT_TRIANGLE_MESSAGE;
+      message = AppConstants.DEFAULT_CONSTANTS.IS_NOT_TRIANGLE_MESSAGE;
     }
     setOutputMessage(message);
   }
@@ -138,7 +138,7 @@ function Section() {
    * @param {*} firstAngle
    * @param {*} secondAngle
    * @param {*} thirdAngle
-   * @returns message
+   * @returns sum of angles
    */
   function calculateSumOfAngles(firstAngle, secondAngle, thirdAngle) {
     return fixToTwoDigitsAfterDecimalPoint(
@@ -169,13 +169,13 @@ function Section() {
   function renderAppDescriptionSection() {
     return (
       <div className="sub-section">
-        <h3>{DEFAULT_CONSTANTS.IS_TRIANGLE_APP_DESCRIPTION}</h3>
+        <h3>{AppConstants.DEFAULT_CONSTANTS.IS_TRIANGLE_APP_DESCRIPTION}</h3>
       </div>
     );
   }
 
   /**
-   * Function to angles input labels section
+   * Function to render angles input labels section
    * @returns angles input labels section
    */
   function renderTriangleAnglesInputLabelsSection() {
@@ -225,9 +225,9 @@ function Section() {
     return (
       <button
         className={`${
-          isTriangleButtonInvalid() ? "btn-disabled" : "btn-enabled"
+          isIsTriangleButtonInvalid() ? "btn-disabled" : "btn-enabled"
         }`}
-        disabled={isTriangleButtonInvalid()}
+        disabled={isIsTriangleButtonInvalid()}
         onClick={() =>
           isTriangleButtonClickHandler(
             firstAngleInput,
@@ -249,7 +249,7 @@ function Section() {
     return (
       <h2
         className={`${
-          outputMessage === DEFAULT_CONSTANTS.IS_TRIANGLE_MESSAGE
+          outputMessage === AppConstants.DEFAULT_CONSTANTS.IS_TRIANGLE_MESSAGE
             ? "output-msg"
             : "error-msg"
         }`}
