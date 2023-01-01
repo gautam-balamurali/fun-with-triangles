@@ -2,11 +2,9 @@
 
 import React from "react";
 import {
-  calculateSumOfSquares,
   containsOnlySpaces,
   convertToNumber,
   fixToTwoDigitsAfterDecimalPoint,
-  getSquareRoot,
   isNotANumber,
 } from "../../../utils/app-utils";
 import * as AppConstants from "../../../config/app-config";
@@ -21,10 +19,10 @@ function Section() {
   //   <-- Validity Functions Begins -->
 
   /**
-   * Function to check validity of calculate hypotenuse button
+   * Function to check validity of calculate area button
    * @returns boolean
    */
-  function isCalculateHypotenuseButtonInvalid() {
+  function isCalculateAreaButtonInvalid() {
     return baseValueInput.length < 1 || heightValueInput.length < 1;
   }
 
@@ -90,33 +88,33 @@ function Section() {
   //   <-- Click Handler Functions Begins -->
 
   /**
-   * Function to handle when calculate hypotenuse button is clicked
+   * Function to handle when calculate area button is clicked
    * @param baseValue
    * @param heightValue
    */
-  function calculateHypotenuseButtonClickHandler(baseValue, heightValue) {
+  function calculateAreaButtonClickHandler(baseValue, heightValue) {
     baseValue = convertToNumber(baseValue);
     heightValue = convertToNumber(heightValue);
 
-    const lengthOfHypotenuse = calculateHypotenuse(baseValue, heightValue);
+    const area = calculateArea(baseValue, heightValue);
 
     setOutputMessage(
       `${
-        AppConstants.DEFAULT_CONSTANTS.HYPOTENUSE_VALUE_MESSAGE
-      } ${fixToTwoDigitsAfterDecimalPoint(lengthOfHypotenuse)}`
+        AppConstants.DEFAULT_CONSTANTS.AREA_VALUE_MESSAGE
+      } ${fixToTwoDigitsAfterDecimalPoint(area)}`
     );
   }
 
   /**
-   * Function to calculate hypotenuse of a triangle
+   * Function to calculate area of a triangle
    * @param {*} baseValue
    * @param {*} heightValue
-   * @returns hypotenuse
+   * @returns area
    */
-  function calculateHypotenuse(baseValue, heightValue) {
-    const sumOfSquares = calculateSumOfSquares(baseValue, heightValue);
-    const lengthOfHypotenuse = getSquareRoot(sumOfSquares);
-    return lengthOfHypotenuse;
+  function calculateArea(baseValue, heightValue) {
+    const product = baseValue * heightValue;
+    const area = product / 2;
+    return area;
   }
 
   //   <-- Click Handler Functions Ends -->
@@ -142,7 +140,7 @@ function Section() {
   function renderAppDescriptionSection() {
     return (
       <div className="sub-section">
-        <h3>{AppConstants.DEFAULT_CONSTANTS.HYPOTENUSE_FORMULA}</h3>
+        <h3>{AppConstants.DEFAULT_CONSTANTS.AREA_FORMULA}</h3>
       </div>
     );
   }
@@ -151,7 +149,7 @@ function Section() {
    * Function to render values input labels section
    * @returns values input labels section
    */
-  function renderCalculateHypotenuseValuesInputLabelsSection() {
+  function renderCalculateAreaValuesInputLabelsSection() {
     return (
       <div className="sub-section">
         <label htmlFor="base-value-intput" className="base-value-label">
@@ -180,24 +178,21 @@ function Section() {
   }
 
   /**
-   * Function to render calculate hypotenuse button
-   * @returns calculate hypotenuse button
+   * Function to render calculate area button
+   * @returns calculate area button
    */
-  function renderCalculateHypotenuseButton() {
+  function renderCalculateAreaButton() {
     return (
       <button
         className={`${
-          isCalculateHypotenuseButtonInvalid() ? "btn-disabled" : "btn-enabled"
+          isCalculateAreaButtonInvalid() ? "btn-disabled" : "btn-enabled"
         }`}
-        disabled={isCalculateHypotenuseButtonInvalid()}
+        disabled={isCalculateAreaButtonInvalid()}
         onClick={() =>
-          calculateHypotenuseButtonClickHandler(
-            baseValueInput,
-            heightValueInput
-          )
+          calculateAreaButtonClickHandler(baseValueInput, heightValueInput)
         }
       >
-        calculate hypotenuse
+        calculate area
       </button>
     );
   }
@@ -211,7 +206,7 @@ function Section() {
       <h2
         className={`${
           outputMessage.includes(
-            AppConstants.DEFAULT_CONSTANTS.HYPOTENUSE_VALUE_MESSAGE
+            AppConstants.DEFAULT_CONSTANTS.AREA_VALUE_MESSAGE
           )
             ? "output-msg"
             : "error-msg"
@@ -225,8 +220,8 @@ function Section() {
   return (
     <section className="sub-section">
       {renderAppDescriptionSection()}
-      {renderCalculateHypotenuseValuesInputLabelsSection()}
-      {renderCalculateHypotenuseButton()}
+      {renderCalculateAreaValuesInputLabelsSection()}
+      {renderCalculateAreaButton()}
       {renderOutput()}
     </section>
   );

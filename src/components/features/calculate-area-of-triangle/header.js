@@ -5,7 +5,7 @@ import React from "react";
 function Header() {
   return (
     <header className="container user-avatar">
-      <h1>Calculate Area Of Triangle</h1>
+      <h1>calculate area of triangle</h1>
     </header>
   );
 }

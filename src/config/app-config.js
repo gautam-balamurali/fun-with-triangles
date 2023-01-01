@@ -12,6 +12,8 @@ const DEFAULT_CONSTANTS = {
     "for each correct answer you will get 1 point.",
   HYPOTENUSE_FORMULA: "hypotenuse formula: √(base² + height²)",
   HYPOTENUSE_VALUE_MESSAGE: "the length of hypotenuse is",
+  AREA_FORMULA: "area formula: (base * height) / 2",
+  AREA_VALUE_MESSAGE: "the area of triangle is",
 };
 
 const TRIANGLE_QUIZ_CORRECT_ANSWERS_DICTIONARY = {
