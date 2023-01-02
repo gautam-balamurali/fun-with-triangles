@@ -36,7 +36,7 @@ function Navbar() {
             </li>
             <li>
               <NavLink className="link" to="/area-of-triangle">
-                area of triangle
+                area
               </NavLink>
             </li>
           </ul>

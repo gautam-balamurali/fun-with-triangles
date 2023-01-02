@@ -10,7 +10,7 @@ import {
   isNotANumber,
 } from "../../../utils/app-utils";
 import * as AppConstants from "../../../config/app-config";
-// import user_avatar from "../../../images/user_avatar.svg";
+import calc_hypotenuse from "../../../images/hypotenuse.svg";
 import { useState } from "react";
 
 function Section() {
@@ -109,8 +109,8 @@ function Section() {
 
   /**
    * Function to calculate hypotenuse of a triangle
-   * @param {*} baseValue
-   * @param {*} heightValue
+   * @param baseValue
+   * @param heightValue
    * @returns hypotenuse
    */
   function calculateHypotenuse(baseValue, heightValue) {
@@ -127,13 +127,13 @@ function Section() {
    * Function to render user avatar
    * @returns user avatar image
    */
-  //   function renderUserAvatar() {
-  //     return (
-  //       <div className="container user-avatar">
-  //         <img src={user_avatar} alt="User Avatar" />
-  //       </div>
-  //     );
-  //   }
+  function renderUserAvatar() {
+    return (
+      <div className="container user-avatar">
+        <img src={calc_hypotenuse} alt="User Avatar" />
+      </div>
+    );
+  }
 
   /**
    * Function to render app description
@@ -163,6 +163,7 @@ function Section() {
           onChange={baseValueInputChangeHandler}
           type={"number"}
           min={0}
+          placeholder="enter a value"
         ></input>
 
         <label htmlFor="height-value-intput" className="height-value-label">
@@ -174,6 +175,7 @@ function Section() {
           onChange={heightValueInputChangeHandler}
           type={"number"}
           min={0}
+          placeholder="enter a value"
         ></input>
       </div>
     );
@@ -224,6 +226,7 @@ function Section() {
   //   <-- Rendering Calculate Hypotenuse page -->
   return (
     <section className="sub-section">
+      {renderUserAvatar()}
       {renderAppDescriptionSection()}
       {renderCalculateHypotenuseValuesInputLabelsSection()}
       {renderCalculateHypotenuseButton()}
