@@ -1,3 +1,40 @@
+# fun-with-triangles
+
+* A fun app to test your knowledge around triangles.
+* It consists of total 4 pages viz:
+  * Angles of Triangle
+  * Quiz on Triangles
+  * Calculate Hypotenuse
+  * Calculate Area
+
+# How To Use
+
+* Click on section you want to open.
+  * Angles of Triangle: Enter values in input fields and click on is triangle? button to check results.
+  * Quiz on Triangles: Select answers and click on submit answers button to check the score
+  * Calculate Hypotenuse: Enter values in input fields and click on calculate button to check results.
+  * Calculate Area: Enter values in input fields and click on calculate button to check results.
+  
+# Snapshots
+
+![image](https://user-images.githubusercontent.com/27736288/210273439-4a98d516-9d0c-4a72-8ff1-5be68ddf8361.png)
+![image](https://user-images.githubusercontent.com/27736288/210273506-173b622c-e7bd-4d73-9ccd-8b1ae1a8b7d2.png)
+![image](https://user-images.githubusercontent.com/27736288/210273536-a174d319-115b-4c33-a132-5f39b101f4a7.png)
+![image](https://user-images.githubusercontent.com/27736288/210273585-1c6e21c9-81dd-4b94-8749-b060f5d9c21e.png)
+
+# Tech Stack
+
+* React
+* Netlify
+
+# Preview
+
+[View live](https://fun-with-triangles-gautam-balamurali.netlify.app/)
+
+# License
+
+[View license](https://github.com/gautam-balamurali/fun-with-triangles/blob/master/LICENSE.md)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
