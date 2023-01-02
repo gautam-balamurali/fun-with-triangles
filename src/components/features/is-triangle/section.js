@@ -8,7 +8,7 @@ import {
   isNotANumber,
 } from "../../../utils/app-utils";
 import * as AppConstants from "../../../config/app-config";
-// import user_avatar from "../../../images/user_avatar.svg";
+import is_triangle from "../../../images/angles.svg";
 import { useState } from "react";
 
 function Section() {
@@ -135,9 +135,9 @@ function Section() {
 
   /**
    * Function to calculate sum of angles of a triangle
-   * @param {*} firstAngle
-   * @param {*} secondAngle
-   * @param {*} thirdAngle
+   * @param firstAngle
+   * @param secondAngle
+   * @param thirdAngle
    * @returns sum of angles
    */
   function calculateSumOfAngles(firstAngle, secondAngle, thirdAngle) {
@@ -154,13 +154,13 @@ function Section() {
    * Function to render user avatar
    * @returns user avatar image
    */
-  //   function renderUserAvatar() {
-  //     return (
-  //       <div className="container user-avatar">
-  //         <img src={user_avatar} alt="User Avatar" />
-  //       </div>
-  //     );
-  //   }
+  function renderUserAvatar() {
+    return (
+      <div className="container user-avatar">
+        <img src={is_triangle} alt="User Avatar" />
+      </div>
+    );
+  }
 
   /**
    * Function to render app description
@@ -190,6 +190,7 @@ function Section() {
           onChange={firstAngleInputChangeHandler}
           type={"number"}
           min={0}
+          placeholder="enter a value"
         ></input>
 
         <label htmlFor="second-angle-intput" className="second-angle-label">
@@ -201,6 +202,7 @@ function Section() {
           onChange={secondAngleInputChangeHandler}
           type={"number"}
           min={0}
+          placeholder="enter a value"
         ></input>
 
         <label htmlFor="third-angle-intput" className="third-angle-label">
@@ -212,6 +214,7 @@ function Section() {
           onChange={thirdAngleInputChangeHandler}
           type={"number"}
           min={0}
+          placeholder="enter a value"
         ></input>
       </div>
     );
@@ -261,6 +264,7 @@ function Section() {
   //   <-- Rendering Is Triangle? page -->
   return (
     <section className="sub-section">
+      {renderUserAvatar()}
       {renderAppDescriptionSection()}
       {renderTriangleAnglesInputLabelsSection()}
       {renderIsTriangleButton()}

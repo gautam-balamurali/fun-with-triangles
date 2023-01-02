@@ -3,6 +3,7 @@
 import React from "react";
 import * as AppConstants from "../../../config/app-config";
 import { useState } from "react";
+import triangle_quiz from "../../../images/quiz.svg";
 
 function Section() {
   const [scoreInput, setScoreInput] = useState("");
@@ -99,13 +100,13 @@ function Section() {
    * Function to render user avatar
    * @returns user avatar image
    */
-  //   function renderUserAvatar() {
-  //     return (
-  //       <div className="container user-avatar">
-  //         <img src={user_avatar} alt="User Avatar" />
-  //       </div>
-  //     );
-  //   }
+  function renderUserAvatar() {
+    return (
+      <div className="container user-avatar">
+        <img src={triangle_quiz} alt="User Avatar" />
+      </div>
+    );
+  }
 
   /**
    * Function to render app description
@@ -147,7 +148,7 @@ function Section() {
       <form ref={ref} className="quiz-form" onSubmit={submitButtonClickHandler}>
         <div className="question-container">
           <p>
-            What is the third angle for the triangle where angle1 = 45° and
+            1. What is the third angle for the triangle where angle1 = 45° and
             angle2 = 45°?
           </p>
           <label>
@@ -181,7 +182,7 @@ function Section() {
 
         <div className="question-container">
           <p>
-            What is the third angle for the triangle where angle1 = 45° and
+            2. What is the third angle for the triangle where angle1 = 45° and
             angle2 = 45°?
           </p>
           <label>
@@ -214,7 +215,7 @@ function Section() {
         </div>
 
         <div className="question-container">
-          <p>A triangle can have</p>
+          <p>3. A triangle can have</p>
           <label>
             <input
               type="radio"
@@ -236,7 +237,7 @@ function Section() {
         </div>
 
         <div className="question-container">
-          <p>Which of the following can form a right angled triangle?</p>
+          <p>4. Which of the following can form a right angled triangle?</p>
           <label>
             <input
               type="radio"
@@ -258,7 +259,7 @@ function Section() {
         </div>
 
         <div className="question-container">
-          <p>Which of the following triangles are always similar?</p>
+          <p>5. Which of the following triangles are always similar?</p>
           <label>
             <input
               type="radio"
@@ -281,7 +282,7 @@ function Section() {
 
         <div className="question-container">
           <p>
-            If one angle of a triangle is obtuse, then which one of the
+            6. If one angle of a triangle is obtuse, then which one of the
             following is the possible measure of remaining angles?
           </p>
           <label>
@@ -306,7 +307,7 @@ function Section() {
 
         <div className="question-container">
           <p>
-            If the largest angle in a triangle is 70°, what is the least
+            7. If the largest angle in a triangle is 70°, what is the least
             possible value of the smallest angle of the triangle?
           </p>
           <label>
@@ -330,7 +331,7 @@ function Section() {
         </div>
 
         <div className="question-container">
-          <p>The perimeter of scalene triangle with sides a, b, c is</p>
+          <p>8. The perimeter of scalene triangle with sides a, b, c is</p>
           <label>
             <input
               type="radio"
@@ -338,7 +339,7 @@ function Section() {
               onChange={formInputChangeHandler}
               value="a + b + c"
             />
-            a + b + c
+            a+b+c
           </label>
           <label>
             <input
@@ -361,7 +362,7 @@ function Section() {
         </div>
 
         <div className="question-container">
-          <p>A scalene triangle has ___ lines of symmetry</p>
+          <p>9. A scalene triangle has ___ lines of symmetry</p>
           <label>
             <input
               type="radio"
@@ -393,8 +394,8 @@ function Section() {
 
         <div className="question-container">
           <p>
-            There is a right triangle PQR where: angle Q = 90°; angle P = angle
-            R. What is the measure of angles P and R?
+            10. There is a right triangle PQR where: angle Q = 90°; angle P =
+            angle R. What is the measure of angles P and R?
           </p>
           <label>
             <input
@@ -443,6 +444,7 @@ function Section() {
   //   <-- Rendering Quiz on Triangles page -->
   return (
     <section className="sub-section">
+      {renderUserAvatar()}
       {renderAppDescriptionSection()}
       {renderQuizFormSection()}
       {renderOutput()}

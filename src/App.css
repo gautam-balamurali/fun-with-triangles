@@ -1,24 +1,39 @@
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Megrim&display=swap");
 
 :root {
-  --primary: #134e4a;
-  --secondary: #f0fdfa;
-  --tertiary: #14b8a6;
+  --primary: #701a75;
+  --secondary: #fdf4ff;
+  --tertiary: #d946ef;
   --red: #dc2626;
 }
 
 ::placeholder {
-  color: var(--secondary);
+  color: var(--tertiary);
   font-size: medium;
 }
 
 .App {
-  font-family: "IBM Plex Mono", monospace;
+  font-family: "Megrim", cursive;
   margin: 0px auto;
   background-color: var(--secondary);
   color: var(--primary);
   text-align: center;
   width: 100%;
+}
+
+.user-avatar {
+  padding: 2rem;
+  padding-top: 5rem;
+  color: var(--primary);
+  display: block;
+}
+
+.user-avatar img {
+  max-width: 80%;
+  width: 550px;
+  display: block;
+  margin: auto;
+  margin-top: 2rem;
 }
 
 .navigation {
@@ -28,14 +43,15 @@
 }
 
 .navigation .brand {
-  font-weight: bold;
-  font-size: large;
+  font-weight: bolder;
+  font-size: x-large;
   display: flex;
 }
 
 .navigation ul {
   list-style: none;
   text-align: right;
+  padding-inline-start: 0px;
 }
 
 .navigation li {
@@ -77,7 +93,7 @@
   padding: 0.5rem;
   margin: 1rem;
   cursor: pointer;
-  font-family: "IBM Plex Mono", monospace;
+  font-family: "Megrim", cursive;
 }
 
 .btn-disabled {
@@ -90,14 +106,14 @@
   padding: 0.5rem;
   margin: 1rem;
   cursor: not-allowed;
-  font-family: "IBM Plex Mono", monospace;
+  font-family: "Megrim", cursive;
 }
 
 label {
   display: block;
   font-size: large;
   font-weight: 600;
-  font-family: "IBM Plex Mono", monospace;
+  font-family: "Megrim", cursive;
 }
 
 input {
@@ -110,7 +126,7 @@ input {
   width: 100%;
   max-width: 258px;
   color: var(--primary);
-  font-family: "IBM Plex Mono", monospace;
+  font-family: "Megrim", cursive;
 }
 
 .section h2 {
@@ -205,10 +221,81 @@ h4 {
 }
 
 .question-container p {
+  font-weight: bold;
   margin: 1rem 0;
 }
 
 .question-container input {
   cursor: pointer;
-  margin: 0.5rem;
+  margin: 0rem;
+}
+
+.question-container label {
+  font-weight: bolder;
+  display: table-cell;
+  text-align: center;
+  padding: 1rem;
+}
+
+@media screen and (min-width: 400px) and (max-width: 1281px) {
+  .App {
+    font-size: x-large;
+  }
+
+  .navigation ul {
+    font-size: large;
+  }
+
+  label,
+  input,
+  .btn-enabled,
+  .btn-disabled,
+  .question-container input,
+  .question-container label {
+    font-size: larger;
+  }
+}
+
+@media screen and (min-width: 411px) and (max-width: 415px) {
+  .App {
+    font-size: x-large;
+  }
+
+  .navigation ul {
+    font-size: medium;
+  }
+
+  label,
+  input,
+  .btn-enabled,
+  .btn-disabled,
+  .question-container input,
+  .question-container label {
+    font-size: large;
+  }
+}
+
+@media screen and (min-width: 359px) and (max-width: 362px) {
+  .navigation ul {
+    font-size: small;
+  }
+}
+
+@media (max-width: 320px) {
+  .App {
+    font-size: small;
+  }
+
+  .navigation ul {
+    font-size: xx-small;
+  }
+
+  .header {
+    padding: 2rem;
+  }
+
+  input,
+  .question-container input {
+    width: auto;
+  }
 }
