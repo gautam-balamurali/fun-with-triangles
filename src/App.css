@@ -39,7 +39,7 @@
 .navigation {
   background-color: var(--primary);
   padding: 1rem 0rem;
-  color: white;
+  color: var(--secondary);
 }
 
 .navigation .brand {
@@ -61,7 +61,7 @@
 
 .navigation .link {
   text-decoration: none;
-  color: white;
+  color: var(--secondary);
 }
 
 .navigation .active {
@@ -117,8 +117,9 @@ label {
 }
 
 input {
-  font-size: 14px;
-  outline: #fff;
+  font-size: larger;
+  font-weight: bolder;
+  outline: var(--secondary);
   padding: 0.6rem 1rem;
   margin: 1rem;
   border: 2px solid var(--primary);
