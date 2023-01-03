@@ -1,7 +1,7 @@
 /* eslint-disable */
 
 const DEFAULT_CONSTANTS = {
-  INVALID_INPUT_MESSAGE: "input should be a valid number.",
+  INVALID_INPUT_MESSAGE: "input should be a valid number greater than 0.",
   IS_TRIANGLE_APP_DESCRIPTION:
     "input three angles and find whether the entered angles could make a triangle.",
   IS_TRIANGLE_MESSAGE: "yo, the angles form a triangle!",

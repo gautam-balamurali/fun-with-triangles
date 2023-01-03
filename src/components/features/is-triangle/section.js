@@ -3,6 +3,7 @@
 import React from "react";
 import {
   containsOnlySpaces,
+  convertToInteger,
   convertToNumber,
   fixToTwoDigitsAfterDecimalPoint,
   isNotANumber,
@@ -37,7 +38,12 @@ function Section() {
    * @returns boolean
    */
   function isNumberInputValid(input) {
-    if (isNotANumber(input) || containsOnlySpaces(input)) {
+    if (
+      isNotANumber(input) ||
+      containsOnlySpaces(input) ||
+      convertToInteger(input) <= 0 ||
+      input === ""
+    ) {
       invalidInputErrorHandler();
       return false;
     }
