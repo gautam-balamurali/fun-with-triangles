@@ -10,6 +10,10 @@ function Section() {
   const [userAnswers, setUserAnswers] = useState(
     AppConstants.TRIANGLE_QUIZ_USER_ANSWERS_DICTIONARY
   );
+  const [isInputDisabled, setIsInputDisabled] = useState(false);
+
+  //TODO: Implement this after studying forms in react completely.
+  // const [isSubmitDisabled, setIsSubmitDisabled] = useState(true);
 
   const ref = React.useRef();
 
@@ -32,20 +36,33 @@ function Section() {
           score = score + 1;
       }
     );
-    setScoreInput(
-      `${AppConstants.DEFAULT_CONSTANTS.TRIANGLE_QUIZ_SCORE_MESSAGE} ${score}`
-    );
+    if (score === 10) {
+      setScoreInput(
+        `${AppConstants.DEFAULT_CONSTANTS.TRIANGLE_QUIZ_SCORE_MESSAGE} ${score}. If you're a triangle, you'll be acute one.😉`
+      );
+    } else if (score > 4 && score < 10) {
+      setScoreInput(
+        `${AppConstants.DEFAULT_CONSTANTS.TRIANGLE_QUIZ_SCORE_MESSAGE} ${score}. Better luck next time!👍🏼`
+      );
+    } else {
+      setScoreInput(
+        `${AppConstants.DEFAULT_CONSTANTS.TRIANGLE_QUIZ_SCORE_MESSAGE} ${score}. Brush up your 9th grade geometry and come back again.🫠`
+      );
+    }
+    setIsInputDisabled(true);
   }
 
   /**
    * Function to handle play again button click
    * @param {*} event
+   * TODO: Implement this after studying forms in react completely.
    */
   function playAgainButtonClickHandler(event) {
     event.preventDefault();
     ref.current.reset();
     setScoreInput("");
     setUserAnswers(AppConstants.TRIANGLE_QUIZ_USER_ANSWERS_DICTIONARY);
+    setIsInputDisabled(false);
   }
 
   /**
@@ -77,7 +94,9 @@ function Section() {
 
     Object.keys(AppConstants.TRIANGLE_QUIZ_CORRECT_ANSWERS_DICTIONARY).forEach(
       (answerKey) => {
-        if (userAnswers[answerKey] === "") isDisabled = true;
+        if (userAnswers[answerKey] === "") {
+          isDisabled = true;
+        }
       }
     );
 
@@ -90,7 +109,11 @@ function Section() {
     }
 
     if (isDisabled) {
-      return <button className="btn-disabled">submit answers</button>;
+      return (
+        <button className="btn-disabled" disabled={true}>
+          submit answers
+        </button>
+      );
     } else {
       return <button className="btn-enabled">submit answers</button>;
     }
@@ -123,6 +146,7 @@ function Section() {
   /**
    * Function to render play again button
    * @returns play again button
+   * TODO: Implement this after studying forms in react completely.
    */
   function renderPlayAgainButton() {
     if (
@@ -154,6 +178,7 @@ function Section() {
           <label>
             <input
               type="radio"
+              disabled={isInputDisabled}
               name="question1"
               onChange={formInputChangeHandler}
               value="45°"
@@ -163,6 +188,7 @@ function Section() {
           <label>
             <input
               type="radio"
+              disabled={isInputDisabled}
               name="question1"
               onChange={formInputChangeHandler}
               value="90°"
@@ -172,6 +198,7 @@ function Section() {
           <label>
             <input
               type="radio"
+              disabled={isInputDisabled}
               name="question1"
               onChange={formInputChangeHandler}
               value="60°"
@@ -179,7 +206,6 @@ function Section() {
             60°
           </label>
         </div>
-
         <div className="question-container">
           <p>
             2. What is the third angle for the triangle where angle1 = 45° and
@@ -188,6 +214,7 @@ function Section() {
           <label>
             <input
               type="radio"
+              disabled={isInputDisabled}
               name="question2"
               onChange={formInputChangeHandler}
               value="obtuse"
@@ -197,6 +224,7 @@ function Section() {
           <label>
             <input
               type="radio"
+              disabled={isInputDisabled}
               name="question2"
               onChange={formInputChangeHandler}
               value="acute"
@@ -206,6 +234,7 @@ function Section() {
           <label>
             <input
               type="radio"
+              disabled={isInputDisabled}
               name="question2"
               onChange={formInputChangeHandler}
               value="right angled"
@@ -213,12 +242,12 @@ function Section() {
             right angled
           </label>
         </div>
-
         <div className="question-container">
           <p>3. A triangle can have</p>
           <label>
             <input
               type="radio"
+              disabled={isInputDisabled}
               name="question3"
               onChange={formInputChangeHandler}
               value="one right angle"
@@ -228,6 +257,7 @@ function Section() {
           <label>
             <input
               type="radio"
+              disabled={isInputDisabled}
               name="question3"
               onChange={formInputChangeHandler}
               value="two right angles"
@@ -235,12 +265,12 @@ function Section() {
             two right angles
           </label>
         </div>
-
         <div className="question-container">
           <p>4. Which of the following can form a right angled triangle?</p>
           <label>
             <input
               type="radio"
+              disabled={isInputDisabled}
               name="question4"
               onChange={formInputChangeHandler}
               value="14, 15, 26"
@@ -250,6 +280,7 @@ function Section() {
           <label>
             <input
               type="radio"
+              disabled={isInputDisabled}
               name="question4"
               onChange={formInputChangeHandler}
               value="12, 16, 20"
@@ -257,12 +288,12 @@ function Section() {
             12, 16, 20
           </label>
         </div>
-
         <div className="question-container">
           <p>5. Which of the following triangles are always similar?</p>
           <label>
             <input
               type="radio"
+              disabled={isInputDisabled}
               name="question5"
               onChange={formInputChangeHandler}
               value="Equilateral triangle"
@@ -272,6 +303,7 @@ function Section() {
           <label>
             <input
               type="radio"
+              disabled={isInputDisabled}
               name="question5"
               onChange={formInputChangeHandler}
               value="Isosceles triangle"
@@ -279,7 +311,6 @@ function Section() {
             Isosceles triangle
           </label>
         </div>
-
         <div className="question-container">
           <p>
             6. If one angle of a triangle is obtuse, then which one of the
@@ -288,6 +319,7 @@ function Section() {
           <label>
             <input
               type="radio"
+              disabled={isInputDisabled}
               name="question6"
               onChange={formInputChangeHandler}
               value="100°"
@@ -297,6 +329,7 @@ function Section() {
           <label>
             <input
               type="radio"
+              disabled={isInputDisabled}
               name="question6"
               onChange={formInputChangeHandler}
               value="85°"
@@ -304,7 +337,6 @@ function Section() {
             85°
           </label>
         </div>
-
         <div className="question-container">
           <p>
             7. If the largest angle in a triangle is 70°, what is the least
@@ -313,6 +345,7 @@ function Section() {
           <label>
             <input
               type="radio"
+              disabled={isInputDisabled}
               name="question7"
               onChange={formInputChangeHandler}
               value="30°"
@@ -322,6 +355,7 @@ function Section() {
           <label>
             <input
               type="radio"
+              disabled={isInputDisabled}
               name="question7"
               onChange={formInputChangeHandler}
               value="10°"
@@ -329,12 +363,12 @@ function Section() {
             10°
           </label>
         </div>
-
         <div className="question-container">
           <p>8. The perimeter of scalene triangle with sides a, b, c is</p>
           <label>
             <input
               type="radio"
+              disabled={isInputDisabled}
               name="question8"
               onChange={formInputChangeHandler}
               value="a + b + c"
@@ -344,6 +378,7 @@ function Section() {
           <label>
             <input
               type="radio"
+              disabled={isInputDisabled}
               name="question8"
               onChange={formInputChangeHandler}
               value="2a"
@@ -353,6 +388,7 @@ function Section() {
           <label>
             <input
               type="radio"
+              disabled={isInputDisabled}
               name="question8"
               onChange={formInputChangeHandler}
               value="None of these"
@@ -360,12 +396,12 @@ function Section() {
             None of these
           </label>
         </div>
-
         <div className="question-container">
           <p>9. A scalene triangle has ___ lines of symmetry</p>
           <label>
             <input
               type="radio"
+              disabled={isInputDisabled}
               name="question9"
               onChange={formInputChangeHandler}
               value="two"
@@ -375,6 +411,7 @@ function Section() {
           <label>
             <input
               type="radio"
+              disabled={isInputDisabled}
               name="question9"
               onChange={formInputChangeHandler}
               value="no"
@@ -384,6 +421,7 @@ function Section() {
           <label>
             <input
               type="radio"
+              disabled={isInputDisabled}
               name="question9"
               onChange={formInputChangeHandler}
               value="15"
@@ -391,7 +429,6 @@ function Section() {
             15
           </label>
         </div>
-
         <div className="question-container">
           <p>
             10. There is a right triangle PQR where: angle Q = 90°; angle P =
@@ -400,6 +437,7 @@ function Section() {
           <label>
             <input
               type="radio"
+              disabled={isInputDisabled}
               name="question10"
               onChange={formInputChangeHandler}
               value="85°"
@@ -409,6 +447,7 @@ function Section() {
           <label>
             <input
               type="radio"
+              disabled={isInputDisabled}
               name="question10"
               onChange={formInputChangeHandler}
               value="65°"
@@ -418,6 +457,7 @@ function Section() {
           <label>
             <input
               type="radio"
+              disabled={isInputDisabled}
               name="question10"
               onChange={formInputChangeHandler}
               value="45°"
@@ -426,7 +466,8 @@ function Section() {
           </label>
         </div>
         {renderSubmitButton()}
-        {renderPlayAgainButton()}
+        {/* //TODO: Implement this after studying forms in react completely. */}
+        {/* {renderPlayAgainButton()} */}
       </form>
     );
   }
